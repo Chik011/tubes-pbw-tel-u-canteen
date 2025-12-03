@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Landing Page</title>
 </head>
 <body>
-    <a href="/">Landing page</a> <br>
-    <a href="/admin">Admin</a>
+    <h1>Selamat Datang di Tubes PBW Tel U Canteen</h1>
+    <p>Ini adalah halaman landing page.</p>
 
-    <h1>Ini Halaman Admin</h1>
+    @if(Auth::check())
+        <p>Halo, {{ Auth::user()->name }}! 
+            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                @csrf
+                <button type="submit" style="border: none; background: none; color: blue; text-decoration: underline; cursor: pointer;">Logout</button>
+            </form>
+        </p>
+        <a href="/admin">Ke Admin Dashboard</a>
+    @else
+        <a href="{{ route('login') }}">Login</a> | <a href="{{ route('register') }}">Register</a>
+    @endif
 </body>
 </html>
