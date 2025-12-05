@@ -2,10 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('landingPage');
 });
+
+Route::get('/order', [OrderController::class, 'index'])->name('order');
+Route::get('/location', function () {
+    return view('location');
+})->name('location');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

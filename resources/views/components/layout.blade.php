@@ -25,10 +25,10 @@
                         </li>
                     @endauth
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin">Pesan</a>
+                        <a class="nav-link" href="{{ route('order') }}">Pesan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin">Lokasi</a>
+                        <a class="nav-link" href="{{ route('location') }}">Lokasi</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -63,6 +63,52 @@
             {{ $slot }}
         </div>
     </main>
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Tel U Canteen</h5>
+                    <p>
+                        Kantin Universitas Telkom menyediakan berbagai makanan dan minuman untuk mahasiswa dan staf. Nikmati pengalaman makan yang nyaman dan terjangkau.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Tautan</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="/" class="text-dark">Beranda</a>
+                        </li>
+                        <li>
+                            <a href="/admin" class="text-dark">Pesan</a>
+                        </li>
+                        <li>
+                            <a href="/admin" class="text-dark">Lokasi</a>
+                        </li>
+                        <li>
+                            <a href="/admin" class="text-dark">Riwayat</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Kontak</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="mailto:info@telucanteen.com" class="text-dark">Email: info@telucanteen.com</a>
+                        </li>
+                        <li>
+                            <a href="tel:+62211234567" class="text-dark">Telepon: +62 21 1234 567</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-dark">Alamat: Kampus Telkom University</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2025 Tel U Canteen. Copy Right Tubes PBW.
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
