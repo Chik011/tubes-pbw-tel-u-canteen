@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="card">
-                                    <img src="{{ asset('img/1.png') }}" class="card-img-top" alt="Ayam Goreng">
+                                    <img src="{{ asset('img/ayam_oyeng.jpeg') }}" class="card-img-top" alt="Ayam Goreng" height="300px";>
                                     <div class="card-body">
                                         <h5 class="card-title">Ayam Goreng</h5>
                                         <p class="card-text">Ayam goreng crispy dengan sambal.</p>
@@ -77,7 +77,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="card">
-                                    <img src="{{ asset('img/1.png') }}" class="card-img-top" alt="Rendang">
+                                    <img src="{{ asset('img/rendang.jpeg') }}" class="card-img-top" alt="Rendang" height="300px";>
                                     <div class="card-body">
                                         <h5 class="card-title">Rendang</h5>
                                         <p class="card-text">Rendang daging sapi khas Padang.</p>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="card">
-                                    <img src="{{ asset('img/1.png') }}" class="card-img-top" alt="Gado-Gado">
+                                    <img src="{{ asset('img/gado.jpeg') }}" class="card-img-top" alt="Gado-Gado" height="300px";>
                                     <div class="card-body">
                                         <h5 class="card-title">Gado-Gado</h5>
                                         <p class="card-text">Sayur-sayuran dengan bumbu kacang.</p>
@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="card">
-                                    <img src="{{ asset('img/1.png') }}" class="card-img-top" alt="Soto Ayam">
+                                    <img src="{{ asset('img/soto_ayam.jpeg') }}" class="card-img-top" alt="Soto Ayam" height="300px";>
                                     <div class="card-body">
                                         <h5 class="card-title">Soto Ayam</h5>
                                         <p class="card-text">Soto ayam dengan kuah kuning.</p>
@@ -110,10 +110,10 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="card">
-                                    <img src="{{ asset('img/1.png') }}" class="card-img-top" alt="Nasi Padang">
+                                    <img src="{{ asset('img/mi_ayam.jpeg') }}" class="card-img-top" alt="Mie Ayam" height="300px";>
                                     <div class="card-body">
-                                        <h5 class="card-title">Nasi Padang</h5>
-                                        <p class="card-text">Paket nasi Padang dengan lauk-pauk.</p>
+                                        <h5 class="card-title">Mie Ayam</h5>
+                                        <p class="card-text">Mie Ayam</p>
                                         <p class="card-text"><strong>Rp 22.000</strong></p>
                                         <button class="btn btn-primary">Tambah ke Keranjang</button>
                                     </div>
