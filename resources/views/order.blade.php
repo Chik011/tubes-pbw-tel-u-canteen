@@ -1,139 +1,136 @@
 <x-layout>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Pesan Makanan</h1>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Menu Makanan</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/naci_oyeng.jpeg') }}" class="card-img-top" alt="Nasi Goreng" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Nasi Goreng</h5>
-                                        <p class="card-text">Nasi goreng spesial dengan telur dan ayam.</p>
-                                        <p class="card-text"><strong>Rp 15.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/ayam_bakar.jpeg') }}" class="card-img-top" alt="Ayam Bakar" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ayam Bakar</h5>
-                                        <p class="card-text">Ayam bakar dengan bumbu rempah.</p>
-                                        <p class="card-text"><strong>Rp 20.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/sate_ayam.jpeg') }}" class="card-img-top" alt="Sate Ayam" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Sate Ayam</h5>
-                                        <p class="card-text">Sate ayam dengan bumbu kacang.</p>
-                                        <p class="card-text"><strong>Rp 18.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/bakso.jpeg') }}" class="card-img-top" alt="Bakso" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Bakso</h5>
-                                        <p class="card-text">Bakso daging sapi dengan mie.</p>
-                                        <p class="card-text"><strong>Rp 12.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/mie_goreng.jpeg') }}" class="card-img-top" alt="Mie Goreng" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Mie Goreng</h5>
-                                        <p class="card-text">Mie goreng dengan sayuran dan telur.</p>
-                                        <p class="card-text"><strong>Rp 14.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/ayam_oyeng.jpeg') }}" class="card-img-top" alt="Ayam Goreng" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ayam Goreng</h5>
-                                        <p class="card-text">Ayam goreng crispy dengan sambal.</p>
-                                        <p class="card-text"><strong>Rp 16.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/rendang.jpeg') }}" class="card-img-top" alt="Rendang" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Rendang</h5>
-                                        <p class="card-text">Rendang daging sapi khas Padang.</p>
-                                        <p class="card-text"><strong>Rp 25.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/gado.jpeg') }}" class="card-img-top" alt="Gado-Gado" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Gado-Gado</h5>
-                                        <p class="card-text">Sayur-sayuran dengan bumbu kacang.</p>
-                                        <p class="card-text"><strong>Rp 13.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/soto_ayam.jpeg') }}" class="card-img-top" alt="Soto Ayam" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Soto Ayam</h5>
-                                        <p class="card-text">Soto ayam dengan kuah kuning.</p>
-                                        <p class="card-text"><strong>Rp 17.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="{{ asset('img/mi_ayam.jpeg') }}" class="card-img-top" alt="Mie Ayam" height="300px";>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Mie Ayam</h5>
-                                        <p class="card-text">Mie Ayam</p>
-                                        <p class="card-text"><strong>Rp 22.000</strong></p>
-                                        <button class="btn btn-primary">Tambah ke Keranjang</button>
-                                    </div>
-                                </div>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .page-title {
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .menu-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .menu-card {
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .menu-card .card-body {
+            text-align: center;
+        }
+
+        .btn-outline-danger {
+            font-weight: 600;
+        }
+
+        .cart-card {
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .cart-header {
+            background-color: #dc3545;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-5 page-title">Pesan Makanan</h1>
+
+        <div class="row g-4">
+            <!-- MENU -->
+            <div class="col-lg-8">
+                <div class="row g-4">
+
+                    <!-- ITEM -->
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/naci_oyeng.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Nasi Goreng</h5>
+                                <p class="text-muted">Nasi goreng spesial dengan telur dan ayam.</p>
+                                <p class="fw-bold">Rp 15.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/ayam_bakar.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Ayam Bakar</h5>
+                                <p class="text-muted">Ayam bakar dengan bumbu rempah.</p>
+                                <p class="fw-bold">Rp 20.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/sate_ayam.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Sate Ayam</h5>
+                                <p class="text-muted">Sate ayam dengan bumbu kacang.</p>
+                                <p class="fw-bold">Rp 18.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/bakso.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Bakso</h5>
+                                <p class="text-muted">Bakso daging sapi dengan mie.</p>
+                                <p class="fw-bold">Rp 12.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Keranjang Belanja</h5>
+
+            <!-- KERANJANG -->
+            <div class="col-lg-4">
+                <div class="card cart-card sticky-top" style="top:100px;">
+                    <div class="card-header cart-header">
+                        🛒 Keranjang Belanja
                     </div>
-                    <div class="card-body">
-                        <p>Keranjang kosong.</p>
-                        <button class="btn btn-success w-100">Checkout</button>
+
+                    <div class="card-body text-center">
+                        <p class="text-muted mb-4">
+                            Keranjang masih kosong
+                        </p>
+
+                        <button class="btn btn-outline-danger w-100">
+                            Checkout
+                        </button>
+
+                        <small class="d-block mt-2 text-muted">
+                            Tambahkan menu untuk melanjutkan
+                        </small>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </x-layout>
