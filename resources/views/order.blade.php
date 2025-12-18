@@ -207,7 +207,7 @@
             <div class="col-lg-4">
                 <div class="card cart-card sticky-top" style="top:100px;">
                     <div class="card-header cart-header">
-                        🛒 Keranjang Belanja
+                        Keranjang Belanja
                     </div>
 
             <div class="card-body">
@@ -216,7 +216,7 @@
                     Keranjang masih kosong
                 </li>
             </ul>
-
+                <!-- Untuk total dan tombol checkout -->
                 <h6 class="text-end mb-3">
                 Total: <span id="cart-total">Rp 0</span>
                   </h6>
@@ -225,10 +225,6 @@
                 Checkout
              </button>
             </div>
-
-                        <small class="d-block mt-2 text-muted">
-                            Tambahkan menu untuk melanjutkan
-                        </small>
                     </div>
                 </div>
             </div>
