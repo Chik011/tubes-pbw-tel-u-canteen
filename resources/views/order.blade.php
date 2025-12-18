@@ -106,6 +106,90 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/ayam_oyeng.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Ayam Goreng</h5>
+                                <p class="text-muted">Ayam Goreng enakk</p>
+                                <p class="fw-bold">Rp 10.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/soto_ayam.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Soto Ayam</h5>
+                                <p class="text-muted">Soto Ayam</p>
+                                <p class="fw-bold">Rp 18.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/gado.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Gado-Gado</h5>
+                                <p class="text-muted">Gado Gado </p>
+                                <p class="fw-bold">Rp 18.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/mi_ayam.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Mie Ayam</h5>
+                                <p class="text-muted">Mie Ayam</p>
+                                <p class="fw-bold">Rp 18.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/mie_goreng.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Mie Goreng</h5>
+                                <p class="text-muted">Mie Goreng</p>
+                                <p class="fw-bold">Rp 18.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card menu-card">
+                            <img src="{{ asset('img/rendang.jpeg') }}" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Rendang</h5>
+                                <p class="text-muted">Rendang</p>
+                                <p class="fw-bold">Rp 18.000</p>
+                                <button class="btn btn-outline-danger w-100">
+                                    Tambah ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
