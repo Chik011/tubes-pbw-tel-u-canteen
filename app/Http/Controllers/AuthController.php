@@ -23,11 +23,13 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+
+            // Arahkan ke halaman pesan
+            return redirect()->route('order');
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Email atau password salah.',
         ]);
     }
 
@@ -52,7 +54,8 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/admin');
+        // ⬅️ INI YANG PALING PENTING
+        return redirect()->route('order');
     }
 
     public function logout(Request $request)
