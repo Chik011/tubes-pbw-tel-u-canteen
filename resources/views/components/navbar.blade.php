@@ -8,11 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Landing Page</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin">Admin</a>
+                    <a class="nav-link" href="/order">Pesan</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/location">Lokasi</a>
+                </li>
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/history">History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Admin</a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
         </div>
     </div>
