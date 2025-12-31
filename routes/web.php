@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminController;
+use App\Models\Order;
+use App\Models\OrderItem;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +33,13 @@ Route::get('/order', [OrderController::class, 'index'])
 */
 Route::post('/cart/add/{menu}', [OrderController::class, 'addToCart'])
     ->name('cart.add');
+
+Route::post('/cart/plus/{item}', [OrderController::class, 'plusQty'])
+    ->name('cart.plus');
+
+Route::post('/cart/minus/{item}', [OrderController::class, 'minusQty'])
+    ->name('cart.minus');
+
 
 /*
 |--------------------------------------------------------------------------
