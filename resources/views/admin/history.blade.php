@@ -39,6 +39,9 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="page-title">Kelola Pesanan</h1>
             <div>
+                <a href="{{ route('admin.menus') }}" class="btn btn-danger px-4">
+                    🍽️ Kelola Menu
+                </a>
                 <a href="{{ route('admin.menus.create') }}" class="btn btn-danger me-2">
                     <i class="fas fa-plus"></i> Tambah Menu
                 </a>
