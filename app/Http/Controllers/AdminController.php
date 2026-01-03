@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\OrdersExport;
 
 class AdminController extends Controller
 {
@@ -18,11 +20,14 @@ class AdminController extends Controller
         });
     }
 
-    public function dashboard()
+    // ✅ DASHBOARD ADMIN (/admin)
+    public function index()
     {
         $orders = Order::with('items.menu')->get();
         return view('admin.history', compact('orders'));
     }
+
+    // ================= MENU =================
 
     public function menus()
     {
@@ -38,10 +43,10 @@ class AdminController extends Controller
     public function storeMenu(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name'        => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'required|numeric|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'price'       => 'required|numeric|min:0',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $data = $request->all();
@@ -52,7 +57,8 @@ class AdminController extends Controller
 
         Menu::create($data);
 
-        return redirect()->route('admin.menus')->with('success', 'Menu berhasil ditambahkan');
+        return redirect()->route('admin.menus')
+            ->with('success', 'Menu berhasil ditambahkan');
     }
 
     public function editMenu(Menu $menu)
@@ -63,10 +69,10 @@ class AdminController extends Controller
     public function updateMenu(Request $request, Menu $menu)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name'        => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'required|numeric|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'price'       => 'required|numeric|min:0',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $data = $request->all();
@@ -77,18 +83,32 @@ class AdminController extends Controller
 
         $menu->update($data);
 
-        return redirect()->route('admin.menus')->with('success', 'Menu berhasil diupdate');
+        return redirect()->route('admin.menus')
+            ->with('success', 'Menu berhasil diupdate');
     }
 
     public function destroyMenu(Menu $menu)
     {
         $menu->delete();
-        return redirect()->route('admin.menus')->with('success', 'Menu berhasil dihapus');
+
+        return redirect()->route('admin.menus')
+            ->with('success', 'Menu berhasil dihapus');
     }
+
+    // ================= HISTORY =================
 
     public function history()
     {
         $orders = Order::with('items.menu')->get();
         return view('admin.history', compact('orders'));
+    }
+
+    /**
+     * Export orders to Excel
+     */
+    public function exportOrders()
+    {
+        $fileName = 'orders_export_' . date('Y-m-d_H-i-s') . '.xlsx';
+        return Excel::download(new OrdersExport, $fileName);
     }
 }

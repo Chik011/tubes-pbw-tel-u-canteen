@@ -9,7 +9,7 @@
             color: #dc3545;
         }
 
-        .admin-card {
+        .history-card {
             border: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         }
@@ -36,49 +36,33 @@
     </style>
 
     <div class="container my-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="page-title">Kelola Pesanan</h1>
-            <div>
-                <a href="{{ route('admin.menus.create') }}" class="btn btn-danger me-2">
-                    <i class="fas fa-plus"></i> Tambah Menu
-                </a>
-                <a href="{{ route('admin.orders.export') }}" class="btn btn-success">
-                    <i class="fas fa-file-excel"></i> Export Excel
-                </a>
-            </div>
-        </div>
+        <h1 class="text-center mb-5 page-title">Riwayat Pesanan</h1>
 
         @if($orders->count())
-            <div class="card admin-card">
+            <div class="card history-card">
                 <div class="card-body p-0">
                     <div class="table-responsive">
                         <table class="table mb-0">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>User</th>
+                                    <th>Tanggal</th>
                                     <th>Items</th>
                                     <th>Total</th>
                                     <th>Pengambilan</th>
                                     <th>Status</th>
-                                    <th>Tanggal</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($orders as $order)
                                 <tr>
                                     <td>#{{ $order->id }}</td>
-                                    <td>
-                                        {{ $order->user ? $order->user->name : 'Unknown' }}
-                                        <br>
-                                        <small class="text-muted">{{ $order->user ? $order->user->email : '' }}</small>
-                                    </td>
+                                    <td>{{ $order->created_at->format('d/m/Y H:i') }}</td>
                                     <td>
                                         @foreach($order->items as $item)
-                                            <span class="badge bg-light text-dark mb-1">
-                                                {{ $item->menu->name }} ({{ $item->qty }}x)
-                                            </span>
+                                        <span class="badge bg-light text-dark mb-1">
+                                            {{ $item->menu->name }} ({{ $item->qty }}x)
+                                        </span>
                                         @endforeach
                                     </td>
                                     <td>Rp {{ number_format($order->total_price, 0, ',', '.') }}</td>
@@ -93,11 +77,20 @@
                                     </td>
                                     <td>
                                         @switch($order->status)
-                                            @case('cart')
-                                                <span class="badge bg-secondary">Keranjang</span>
-                                                @break
                                             @case('pending')
-                                                <span class="badge bg-warning">Menunggu Pembayaran</span>
+                                                <div class="d-flex gap-2 align-items-center">
+                                                    @if($order->payment_url)
+                                                        <a href="{{ $order->payment_url }}" target="_blank" class="btn btn-primary btn-sm">Bayar</a>
+                                                    @else
+                                                        <form action="{{ route('order.payment', $order->id) }}" method="POST">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-primary btn-sm">Bayar</button>
+                                                        </form>
+                                                    @endif
+                                                    <a href="{{ route('order.check-status', $order->id) }}" class="btn btn-outline-secondary btn-sm" title="Perbarui Status">
+                                                        <i class="fas fa-sync-alt"></i>
+                                                    </a>
+                                                </div>
                                                 @break
                                             @case('paid')
                                                 <span class="badge bg-info">Sudah Dibayar</span>
@@ -115,19 +108,6 @@
                                                 <span class="badge bg-secondary">{{ $order->status }}</span>
                                         @endswitch
                                     </td>
-                                    <td>{{ $order->created_at->format('d/m/Y H:i') }}</td>
-                                    <td>
-                                        @if($order->status === 'paid')
-                                            <form action="{{ route('order.complete', $order->id) }}" method="POST" class="d-inline">
-                                                @csrf
-                                                <button type="submit" class="btn btn-success btn-sm" onclick="return confirm('Yakin ingin menyelesaikan pesanan ini?')">
-                                                    <i class="fas fa-check"></i> Selesai
-                                                </button>
-                                            </form>
-                                        @else
-                                            <span class="text-muted small">Belum Selesai</span>
-                                        @endif
-                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -138,6 +118,7 @@
         @else
             <div class="text-center py-5">
                 <p class="text-muted">Belum ada pesanan</p>
+                <a href="{{ route('order') }}" class="btn btn-danger">Pesan Sekarang</a>
             </div>
         @endif
     </div>

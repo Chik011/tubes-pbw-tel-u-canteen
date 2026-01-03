@@ -11,6 +11,9 @@ class Order extends Model
         'user_id',
         'total_price',
         'status',
+        'payment_url',
+        'delivery_type',
+        'delivery_address',
     ];
 
     /**
@@ -19,5 +22,13 @@ class Order extends Model
     public function items()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    /**
+     * Relasi: 1 Order dimiliki oleh 1 User
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

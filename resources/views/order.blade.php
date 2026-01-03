@@ -9,22 +9,18 @@
             color: #dc3545;
         }
 
-        .menu-card img {
-            height: 220px;
-            object-fit: cover;
-        }
-
         .menu-card {
             border: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         }
 
-        .menu-card .card-body {
-            text-align: center;
+        .menu-card img {
+            height: 220px;
+            object-fit: cover;
         }
 
-        .btn-outline-danger {
-            font-weight: 600;
+        .menu-card .card-body {
+            text-align: center;
         }
 
         .cart-card {
@@ -137,6 +133,60 @@
 
                             <form action="/checkout" method="POST">
                                 @csrf
+
+                                {{-- ============ PILIHAN PENGAMBILAN ============ --}}
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Pengambilan:</label>
+                                    <div class="d-flex gap-3">
+                                        <div class="form-check">
+                                            <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="delivery_type"
+                                                id="pickup"
+                                                value="pickup"
+                                                checked
+                                            >
+                                            <label class="form-check-label" for="pickup">
+                                                Ambil di Tempat
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                name="delivery_type"
+                                                id="delivery"
+                                                value="delivery"
+                                            >
+                                            <label class="form-check-label" for="delivery">
+                                                Delivery
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- ============ ALAMAT DELIVERY ============ --}}
+                                <div id="delivery-address-section" class="mb-3" style="display: none;">
+                                    <label class="form-label fw-bold">Alamat Delivery:</label>
+                                    <select name="delivery_address" class="form-select" id="delivery-address">
+                                        <option value="">Pilih Alamat...</option>
+                                        <optgroup label="Gedung">
+                                            <option value="FIK">FIK</option>
+                                            <option value="FIT">FIT</option>
+                                            <option value="FEB">FEB</option>
+                                            <option value="TULT">TULT</option>
+                                            <option value="FKS">FKS</option>
+                                            <option value="GD CACUK">GD CACUK</option>
+                                        </optgroup>
+                                        <optgroup label="Asrama">
+                                            <option value="Asrama Putra 1">Asrama Putra 1</option>
+                                            <option value="Asrama Putra 2">Asrama Putra 2</option>
+                                            <option value="Asrama Putri">Asrama Putri</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
                                 <button class="btn btn-danger w-100">
                                     Checkout
                                 </button>
@@ -193,6 +243,27 @@
                     sendQty(btn.dataset.id, 'minus');
                 });
             });
+
+            // Show/hide delivery address section
+            const pickupRadio = document.getElementById('pickup');
+            const deliveryRadio = document.getElementById('delivery');
+            const deliverySection = document.getElementById('delivery-address-section');
+            const deliveryAddress = document.getElementById('delivery-address');
+
+            function toggleDeliverySection() {
+                if (deliveryRadio.checked) {
+                    deliverySection.style.display = 'block';
+                    deliveryAddress.required = true;
+                } else {
+                    deliverySection.style.display = 'none';
+                    deliveryAddress.required = false;
+                    deliveryAddress.value = '';
+                }
+            }
+
+            pickupRadio.addEventListener('change', toggleDeliverySection);
+            deliveryRadio.addEventListener('change', toggleDeliverySection);
         });
     </script>
 </x-layout>
+

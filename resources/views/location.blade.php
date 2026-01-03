@@ -26,10 +26,10 @@
     </style>
 
     <section class="location-section mt-5 py-5">
-        <div class="container-fluid px-0">
+        <div class="container">
 
             <!-- HEADER -->
-            <div class="container text-white text-center mb-4">
+            <div class="text-white text-center mb-4">
                 <h1 class="fw-bold">Lokasi Kantin Tel U</h1>
                 <p class="opacity-75">
                     Temukan seluruh kantin & tenant di area Kampus Telkom University
@@ -37,14 +37,14 @@
             </div>
 
             <!-- MAP -->
-            <div class="container mb-5">
-                <div style="height:600px;">
-                    <div id="map" style="width:100%; height:100%;"></div>
+            <div class="mb-5">
+                <div style="height:500px;">
+                    <div id="map" style="width:100%; height:100%; border-radius: 24px;"></div>
                 </div>
             </div>
 
             <!-- INFORMASI -->
-            <div class="container pb-5">
+            <div class="pb-5">
                 <div class="row g-4">
                     <div class="col-md-6">
                         <div class="card shadow">
@@ -155,3 +155,4 @@
     </script>
 
 </x-layout>
+

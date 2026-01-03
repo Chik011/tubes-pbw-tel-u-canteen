@@ -9,7 +9,9 @@ class HistoryController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('items.menu')->get();
-        return view('admin.history', compact('orders'));
+        $orders = Order::with('items.menu', 'user')
+            ->where('user_id', auth()->id())
+            ->get();
+        return view('history', compact('orders'));
     }
 }
