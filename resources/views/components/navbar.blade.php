@@ -16,16 +16,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/location">Lokasi</a>
                 </li>
-                @auth
-                    @if(auth()->user()->isAdmin())
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/history">History</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin">Admin</a>
-                        </li>
-                    @endif
-                @endauth
+                <li class="nav-item">
+                    <a class="nav-link" href="/history">History</a>
+                </li>
             </ul>
         </div>
     </div>

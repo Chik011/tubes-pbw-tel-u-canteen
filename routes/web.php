@@ -73,7 +73,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout', [OrderController::class, 'checkout'])
         ->name('checkout');
 
-    Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/history', [HistoryController::class, 'index'])->name('history');
     Route::get('/admin/menus', [AdminController::class, 'menus'])->name('admin.menus');
     Route::get('/admin/menus/create', [AdminController::class, 'createMenu'])->name('admin.menus.create');
     Route::post('/admin/menus', [AdminController::class, 'storeMenu'])->name('admin.menus.store');

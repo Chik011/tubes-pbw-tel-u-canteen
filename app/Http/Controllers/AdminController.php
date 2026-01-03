@@ -20,7 +20,8 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $orders = Order::with('items.menu')->get();
+        return view('admin.history', compact('orders'));
     }
 
     public function menus()
