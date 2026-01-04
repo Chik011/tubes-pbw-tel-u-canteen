@@ -1,5 +1,4 @@
 <x-layout>
-
 <div class="container">
     <!-- HERO SECTION DENGAN BACKGROUND -->
     <div class="p-5 mb-5 rounded-4 text-white"
@@ -91,6 +90,5 @@
         </a>
     </div>
 </div>
-
 </x-layout>
 

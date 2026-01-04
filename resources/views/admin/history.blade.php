@@ -42,9 +42,6 @@
                 <a href="{{ route('admin.menus') }}" class="btn btn-danger px-4">
                     🍽️ Kelola Menu
                 </a>
-                <a href="{{ route('admin.menus.create') }}" class="btn btn-danger me-2">
-                    <i class="fas fa-plus"></i> Tambah Menu
-                </a>
                 <a href="{{ route('admin.orders.export') }}" class="btn btn-success">
                     <i class="fas fa-file-excel"></i> Export Excel
                 </a>
