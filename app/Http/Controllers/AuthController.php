@@ -24,7 +24,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Arahkan ke halaman pesan
+            // ke halaman pesan
             return redirect()->route('order');
         }
 

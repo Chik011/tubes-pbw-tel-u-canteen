@@ -6,20 +6,12 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HistoryController;
 
-/*
-|--------------------------------------------------------------------------
-| Landing Page (Public)
-|--------------------------------------------------------------------------
-*/
+// landing page
 Route::get('/', function () {
     return view('landingPage');
 })->name('home');
 
-/*
-|--------------------------------------------------------------------------
-| Order / Menu (Public)
-|--------------------------------------------------------------------------
-*/
+// order/menu
 Route::get('/order', [OrderController::class, 'index'])
     ->name('order');
 Route::post('/payment/callback', [OrderController::class, 'callback'])
@@ -29,11 +21,7 @@ Route::get('/payment/return', [OrderController::class, 'paymentReturn'])
     ->name('payment.return');
 
 
-/*
-|--------------------------------------------------------------------------
-| Cart
-|--------------------------------------------------------------------------
-*/
+// keranjang
 Route::post('/cart/add/{menu}', [OrderController::class, 'addToCart'])
     ->name('cart.add');
 
@@ -43,20 +31,12 @@ Route::post('/cart/plus/{item}', [OrderController::class, 'plusQty'])
 Route::post('/cart/minus/{item}', [OrderController::class, 'minusQty'])
     ->name('cart.minus');
 
-/*
-|--------------------------------------------------------------------------
-| Location (Public)
-|--------------------------------------------------------------------------
-*/
+// lokasi
 Route::get('/location', function () {
     return view('location');
 })->name('location');
 
-/*
-|--------------------------------------------------------------------------
-| Auth (Guest Only)
-|--------------------------------------------------------------------------
-*/
+// auth guest
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])
         ->name('login');
@@ -69,25 +49,19 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);
 });
 
-/*
-|--------------------------------------------------------------------------
-| User (Authenticated)
-|--------------------------------------------------------------------------
-*/
+// auth user
 Route::middleware('auth')->group(function () {
 
     Route::post('/checkout', [OrderController::class, 'checkout'])
         ->name('checkout');
 
-    // ✅ HISTORY USER (AMAN, TIDAK KE ADMIN)
     Route::get('/history', [HistoryController::class, 'index'])
         ->name('history');
 
-    // Generate payment URL for pending orders
     Route::post('/order/{order}/payment', [OrderController::class, 'generatePaymentUrl'])
         ->name('order.payment');
 
-    // Check payment status from Midtrans
+    // Check payment status dari Midtrans
     Route::get('/order/{order}/check-status', [OrderController::class, 'manualCheckStatus'])
         ->name('order.check-status');
 
@@ -95,16 +69,11 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Admin (Authenticated + Admin)
-|--------------------------------------------------------------------------
-*/
+// auth admin
 Route::middleware(['auth'])
     ->prefix('admin')
     ->group(function () {
 
-        // Check if user is admin in the controller
         Route::get('/', [AdminController::class, 'index'])
             ->name('admin.dashboard');
 

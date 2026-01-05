@@ -1,6 +1,5 @@
 <x-layout>
 <div class="container">
-    <!-- HERO SECTION DENGAN BACKGROUND -->
     <div class="p-5 mb-5 rounded-4 text-white"
          style="
             background:
@@ -33,7 +32,6 @@
         </div>
     </div>
 
-    <!-- SECTION CARA PESAN -->
     <div class="py-5">
 
         <h2 class="fw-bold text-center mb-5" style="color: #dc3545;">Cara Pesan</h2>
@@ -78,7 +76,6 @@
 
     </div>
 
-    <!-- CTA -->
     <div class="p-5 mt-5 bg-light rounded-4 text-center shadow-sm">
         <h2 class="fw-bold">Lapar? Jangan Antre.</h2>
         <p class="text-muted mb-4">

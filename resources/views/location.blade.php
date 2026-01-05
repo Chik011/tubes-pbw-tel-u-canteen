@@ -1,7 +1,6 @@
 <x-layout>
 
     <style>
-        /* SECTION BACKGROUND MERAH (SAMA KAYAK HERO) */
         .location-section {
             background:
                 linear-gradient(
@@ -13,13 +12,11 @@
             background-position: center;
         }
 
-        /* MAP STYLE */
         #map {
             border-radius: 24px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.35);
         }
 
-        /* CARD STYLE */
         .location-section .card {
             border-radius: 18px;
         }
@@ -28,7 +25,6 @@
     <section class="location-section mt-5 py-5">
         <div class="container">
 
-            <!-- HEADER -->
             <div class="text-white text-center mb-4">
                 <h1 class="fw-bold">Lokasi Kantin Tel U</h1>
                 <p class="opacity-75">
@@ -36,14 +32,12 @@
                 </p>
             </div>
 
-            <!-- MAP -->
             <div class="mb-5">
                 <div style="height:500px;">
                     <div id="map" style="width:100%; height:100%; border-radius: 24px;"></div>
                 </div>
             </div>
 
-            <!-- INFORMASI -->
             <div class="pb-5">
                 <div class="row g-4">
                     <div class="col-md-6">
@@ -86,14 +80,12 @@
         </div>
     </section>
 
-    <!-- LEAFLET -->
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- MAP SCRIPT -->
     <script>
         // Center Telkom University
         const map = L.map('map').setView([-6.9737, 107.6316], 15);

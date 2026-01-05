@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    // Kolom yang boleh diisi
     protected $fillable = [
         'user_id',
         'total_price',

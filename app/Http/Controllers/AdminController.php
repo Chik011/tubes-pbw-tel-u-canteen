@@ -20,14 +20,11 @@ class AdminController extends Controller
         });
     }
 
-    // ✅ DASHBOARD ADMIN (/admin)
     public function index()
     {
         $orders = Order::with('items.menu')->get();
         return view('admin.history', compact('orders'));
     }
-
-    // ================= MENU =================
 
     public function menus()
     {
@@ -60,7 +57,6 @@ class AdminController extends Controller
 
         $menu = Menu::create($data);
 
-        // Append new menu to MenuSeeder
         $this->appendToMenuSeeder($menu);
 
         return redirect()->route('admin.menus')
@@ -83,10 +79,8 @@ class AdminController extends Controller
             'updated_at' => now(),
         ],";
 
-        // Read the file content
         $content = file_get_contents($seederPath);
 
-        // Find the position before the closing ]); and insert the new entry
         $closingPattern = "\n        ]);\n    }\n}";
         if (strpos($content, $closingPattern) !== false) {
             $newContent = str_replace(
@@ -123,7 +117,6 @@ class AdminController extends Controller
 
         $menu->update($data);
 
-        // Update MenuSeeder with new menu data
         $this->updateMenuSeeder($menu);
 
         return redirect()->route('admin.menus')
@@ -138,10 +131,9 @@ class AdminController extends Controller
         $seederPath = database_path('seeders/MenuSeeder.php');
         $content = file_get_contents($seederPath);
 
-        // Search for existing entry by name
+        // cari sesuai nama
         $oldPattern = "/(\s*)'(\w+)' => '{$menu->name}',.*?(\1\],)/s";
         
-        // New entry to replace
         $newEntry = "
         [
             'name' => '{$menu->name}',
@@ -162,12 +154,12 @@ class AdminController extends Controller
 
     public function destroyMenu(Menu $menu)
     {
-        // Delete image from public/img folder
+        // hapus foto dri pblc img
         if ($menu->image && file_exists(public_path('img/' . $menu->image))) {
             unlink(public_path('img/' . $menu->image));
         }
 
-        // Remove menu entry from MenuSeeder
+        // hapus menu di menuseeder
         $this->removeFromMenuSeeder($menu);
 
         $menu->delete();
@@ -184,7 +176,6 @@ class AdminController extends Controller
         $seederPath = database_path('seeders/MenuSeeder.php');
         $content = file_get_contents($seederPath);
 
-        // Pattern to find and remove the menu entry by name
         $pattern = "/(\s*)'(\w+)' => '{$menu->name}',.*?(\1\],)/s";
 
         // Remove the entry

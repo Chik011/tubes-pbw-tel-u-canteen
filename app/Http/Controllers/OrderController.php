@@ -284,7 +284,6 @@ class OrderController extends Controller
      */
     public function checkPaymentStatus(Order $order)
     {
-        // Ensure order belongs to authenticated user
         if ($order->user_id !== auth()->id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -319,7 +318,7 @@ class OrderController extends Controller
      */
     public function completeOrder(Order $order)
     {
-        // Only admin can complete orders
+        // hanya admin
         if (!auth()->user()->isAdmin()) {
             abort(403, 'Unauthorized action.');
         }
