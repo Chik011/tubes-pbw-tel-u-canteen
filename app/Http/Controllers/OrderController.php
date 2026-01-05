@@ -20,8 +20,9 @@ class OrderController extends Controller
     {
         $menus = Menu::all();
 
-        // Ambil keranjang (belum checkout)
+        // Ambil keranjang (belum checkout) untuk user yang sedang login
         $order = Order::where('status', 'cart')
+            ->where('user_id', auth()->id())
             ->with('items.menu')
             ->first();
 
@@ -33,14 +34,18 @@ class OrderController extends Controller
      */
     public function addToCart(Menu $menu)
     {
-        // Ambil / buat keranjang
-        $order = Order::firstOrCreate(
-            ['status' => 'cart'],
-            [
+        // Ambil / buat keranjang untuk user yang sedang login
+        $order = Order::where('status', 'cart')
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if (!$order) {
+            $order = Order::create([
                 'user_id' => auth()->id(),
                 'total_price' => 0,
-            ]
-        );
+                'status' => 'cart',
+            ]);
+        }
 
         // Cek item sudah ada
         $item = OrderItem::where('order_id', $order->id)
