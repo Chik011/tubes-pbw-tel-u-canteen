@@ -90,6 +90,14 @@ class MenuSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+        [
+            'name' => 'Picang Oyeng Anet',
+            'description' => 'Picang Oyeng Anet Enyak',
+            'price' => 6000,
+            'image' => '1767603811_68d37921c8b99.jpg',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
         ]);
     }
 }

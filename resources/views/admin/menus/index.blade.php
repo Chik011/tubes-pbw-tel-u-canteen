@@ -11,7 +11,7 @@
 
         .menu-card {
             border: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .table {
@@ -64,7 +64,7 @@
                                     <td>Rp {{ number_format($menu->price, 0, ',', '.') }}</td>
                                     <td>
                                         @if($menu->image)
-                                            <img src="{{ asset('img/' . $menu->image) }}" alt="{{ $menu->name }}" width="50" style="border-radius: 8px;">
+                                            <img src="{{ asset('img/' . $menu->image) }}" alt="{{ $menu->name }}" width="80" style="border-radius: 8px;">
                                         @else
                                             <span class="text-muted">No Image</span>
                                         @endif
